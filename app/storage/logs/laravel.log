@@ -1,0 +1,76 @@
+[2015-05-17 03:50:42] production.ERROR: exception 'PDOException' with message 'SQLSTATE[HY000] [1044] Access denied for user ''@'localhost' to database 'forge'' in C:\xampp\htdocs\sibimbel\vendor\laravel\framework\src\Illuminate\Database\Connectors\Connector.php:47
+Stack trace:
+#0 C:\xampp\htdocs\sibimbel\vendor\laravel\framework\src\Illuminate\Database\Connectors\Connector.php(47): PDO->__construct('mysql:host=loca...', 'forge', '', Array)
+#1 C:\xampp\htdocs\sibimbel\vendor\laravel\framework\src\Illuminate\Database\Connectors\MySqlConnector.php(20): Illuminate\Database\Connectors\Connector->createConnection('mysql:host=loca...', Array, Array)
+#2 C:\xampp\htdocs\sibimbel\vendor\laravel\framework\src\Illuminate\Database\Connectors\ConnectionFactory.php(57): Illuminate\Database\Connectors\MySqlConnector->connect(Array)
+#3 C:\xampp\htdocs\sibimbel\vendor\laravel\framework\src\Illuminate\Database\Connectors\ConnectionFactory.php(46): Illuminate\Database\Connectors\ConnectionFactory->createSingleConnection(Array)
+#4 C:\xampp\htdocs\sibimbel\vendor\laravel\framework\src\Illuminate\Database\DatabaseManager.php(176): Illuminate\Database\Connectors\ConnectionFactory->make(Array, 'mysql')
+#5 C:\xampp\htdocs\sibimbel\vendor\laravel\framework\src\Illuminate\Database\DatabaseManager.php(64): Illuminate\Database\DatabaseManager->makeConnection('mysql')
+#6 C:\xampp\htdocs\sibimbel\vendor\laravel\framework\src\Illuminate\Database\Migrations\DatabaseMigrationRepository.php(167): Illuminate\Database\DatabaseManager->connection(NULL)
+#7 C:\xampp\htdocs\sibimbel\vendor\laravel\framework\src\Illuminate\Database\Migrations\DatabaseMigrationRepository.php(135): Illuminate\Database\Migrations\DatabaseMigrationRepository->getConnection()
+#8 C:\xampp\htdocs\sibimbel\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(371): Illuminate\Database\Migrations\DatabaseMigrationRepository->repositoryExists()
+#9 C:\xampp\htdocs\sibimbel\vendor\laravel\framework\src\Illuminate\Database\Console\Migrations\MigrateCommand.php(98): Illuminate\Database\Migrations\Migrator->repositoryExists()
+#10 C:\xampp\htdocs\sibimbel\vendor\laravel\framework\src\Illuminate\Database\Console\Migrations\MigrateCommand.php(61): Illuminate\Database\Console\Migrations\MigrateCommand->prepareDatabase()
+#11 C:\xampp\htdocs\sibimbel\vendor\laravel\framework\src\Illuminate\Console\Command.php(112): Illuminate\Database\Console\Migrations\MigrateCommand->fire()
+#12 C:\xampp\htdocs\sibimbel\vendor\symfony\console\Symfony\Component\Console\Command\Command.php(253): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#13 C:\xampp\htdocs\sibimbel\vendor\laravel\framework\src\Illuminate\Console\Command.php(100): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#14 C:\xampp\htdocs\sibimbel\vendor\symfony\console\Symfony\Component\Console\Application.php(889): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#15 C:\xampp\htdocs\sibimbel\vendor\symfony\console\Symfony\Component\Console\Application.php(193): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Migrations\MigrateCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#16 C:\xampp\htdocs\sibimbel\vendor\symfony\console\Symfony\Component\Console\Application.php(124): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 C:\xampp\htdocs\sibimbel\artisan(59): Symfony\Component\Console\Application->run()
+#18 {main} [] []
+[2015-05-17 03:51:19] production.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected '$table' (T_VARIABLE)' in C:\xampp\htdocs\sibimbel\app\database\migrations\2015_05_17_031308_create_siswa_table.php:18
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2015-05-17 03:52:29] production.ERROR: exception 'PDOException' with message 'SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'telp_rumah'' in C:\xampp\htdocs\sibimbel\vendor\laravel\framework\src\Illuminate\Database\Connection.php:369
+Stack trace:
+#0 C:\xampp\htdocs\sibimbel\vendor\laravel\framework\src\Illuminate\Database\Connection.php(369): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\sibimbel\vendor\laravel\framework\src\Illuminate\Database\Connection.php(617): Illuminate\Database\Connection->Illuminate\Database\{closure}(Object(Illuminate\Database\MySqlConnection), 'create table `s...', Array)
+#2 C:\xampp\htdocs\sibimbel\vendor\laravel\framework\src\Illuminate\Database\Connection.php(581): Illuminate\Database\Connection->runQueryCallback('create table `s...', Array, Object(Closure))
+#3 C:\xampp\htdocs\sibimbel\vendor\laravel\framework\src\Illuminate\Database\Connection.php(370): Illuminate\Database\Connection->run('create table `s...', Array, Object(Closure))
+#4 C:\xampp\htdocs\sibimbel\vendor\laravel\framework\src\Illuminate\Database\Schema\Blueprint.php(63): Illuminate\Database\Connection->statement('create table `s...')
+#5 C:\xampp\htdocs\sibimbel\vendor\laravel\framework\src\Illuminate\Database\Schema\Builder.php(169): Illuminate\Database\Schema\Blueprint->build(Object(Illuminate\Database\MySqlConnection), Object(Illuminate\Database\Schema\Grammars\MySqlGrammar))
+#6 C:\xampp\htdocs\sibimbel\vendor\laravel\framework\src\Illuminate\Database\Schema\Builder.php(112): Illuminate\Database\Schema\Builder->build(Object(Illuminate\Database\Schema\Blueprint))
+#7 C:\xampp\htdocs\sibimbel\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(211): Illuminate\Database\Schema\Builder->create('siswa', Object(Closure))
+#8 C:\xampp\htdocs\sibimbel\app\database\migrations\2015_05_17_031308_create_siswa_table.php(42): Illuminate\Support\Facades\Facade::__callStatic('create', Array)
+#9 C:\xampp\htdocs\sibimbel\app\database\migrations\2015_05_17_031308_create_siswa_table.php(42): Illuminate\Support\Facades\Schema::create('siswa', Object(Closure))
+#10 C:\xampp\htdocs\sibimbel\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(135): CreateSiswaTable->up()
+#11 C:\xampp\htdocs\sibimbel\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(111): Illuminate\Database\Migrations\Migrator->runUp('2015_05_17_0313...', 1, false)
+#12 C:\xampp\htdocs\sibimbel\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(82): Illuminate\Database\Migrations\Migrator->runMigrationList(Array, false)
+#13 C:\xampp\htdocs\sibimbel\vendor\laravel\framework\src\Illuminate\Database\Console\Migrations\MigrateCommand.php(70): Illuminate\Database\Migrations\Migrator->run('C:\xampp\htdocs...', false)
+#14 C:\xampp\htdocs\sibimbel\vendor\laravel\framework\src\Illuminate\Console\Command.php(112): Illuminate\Database\Console\Migrations\MigrateCommand->fire()
+#15 C:\xampp\htdocs\sibimbel\vendor\symfony\console\Symfony\Component\Console\Command\Command.php(253): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#16 C:\xampp\htdocs\sibimbel\vendor\laravel\framework\src\Illuminate\Console\Command.php(100): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 C:\xampp\htdocs\sibimbel\vendor\symfony\console\Symfony\Component\Console\Application.php(889): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#18 C:\xampp\htdocs\sibimbel\vendor\symfony\console\Symfony\Component\Console\Application.php(193): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Migrations\MigrateCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#19 C:\xampp\htdocs\sibimbel\vendor\symfony\console\Symfony\Component\Console\Application.php(124): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#20 C:\xampp\htdocs\sibimbel\artisan(59): Symfony\Component\Console\Application->run()
+#21 {main}
+
+Next exception 'Illuminate\Database\QueryException' with message 'SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'telp_rumah' (SQL: create table `siswa` (`nis` varchar(255) not null, `tanggal` date not null, `status` varchar(255) not null, `nama` varchar(255) not null, `panggilan` varchar(255) not null, `tempat_lahir` varchar(255) not null, `tanggal_lahir` date not null, `agama` varchar(255) not null, `jenis_kelamin` varchar(255) not null, `asal_sekolah` varchar(255) not null, `nama_ayah` varchar(255) not null, `pekerjaan_ayah` varchar(255) not null, `nama_ibu` varchar(255) not null, `pekerjaan_ibu` varchar(255) not null, `alamat` varchar(255) not null, `kota` varchar(255) not null, `kode_pos` varchar(255) not null, `telp_siswa` varchar(255) not null, `telp_ortu` varchar(255) not null, `telp_rumah` varchar(255) not null, `telp_rumah` varchar(255) not null, `id_program` int not null, `pendaftaran` int not null, `aktivasi` int not null, `penerima` varchar(255) not null) default character set utf8 collate utf8_unicode_ci)' in C:\xampp\htdocs\sibimbel\vendor\laravel\framework\src\Illuminate\Database\Connection.php:625
+Stack trace:
+#0 C:\xampp\htdocs\sibimbel\vendor\laravel\framework\src\Illuminate\Database\Connection.php(581): Illuminate\Database\Connection->runQueryCallback('create table `s...', Array, Object(Closure))
+#1 C:\xampp\htdocs\sibimbel\vendor\laravel\framework\src\Illuminate\Database\Connection.php(370): Illuminate\Database\Connection->run('create table `s...', Array, Object(Closure))
+#2 C:\xampp\htdocs\sibimbel\vendor\laravel\framework\src\Illuminate\Database\Schema\Blueprint.php(63): Illuminate\Database\Connection->statement('create table `s...')
+#3 C:\xampp\htdocs\sibimbel\vendor\laravel\framework\src\Illuminate\Database\Schema\Builder.php(169): Illuminate\Database\Schema\Blueprint->build(Object(Illuminate\Database\MySqlConnection), Object(Illuminate\Database\Schema\Grammars\MySqlGrammar))
+#4 C:\xampp\htdocs\sibimbel\vendor\laravel\framework\src\Illuminate\Database\Schema\Builder.php(112): Illuminate\Database\Schema\Builder->build(Object(Illuminate\Database\Schema\Blueprint))
+#5 C:\xampp\htdocs\sibimbel\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(211): Illuminate\Database\Schema\Builder->create('siswa', Object(Closure))
+#6 C:\xampp\htdocs\sibimbel\app\database\migrations\2015_05_17_031308_create_siswa_table.php(42): Illuminate\Support\Facades\Facade::__callStatic('create', Array)
+#7 C:\xampp\htdocs\sibimbel\app\database\migrations\2015_05_17_031308_create_siswa_table.php(42): Illuminate\Support\Facades\Schema::create('siswa', Object(Closure))
+#8 C:\xampp\htdocs\sibimbel\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(135): CreateSiswaTable->up()
+#9 C:\xampp\htdocs\sibimbel\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(111): Illuminate\Database\Migrations\Migrator->runUp('2015_05_17_0313...', 1, false)
+#10 C:\xampp\htdocs\sibimbel\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(82): Illuminate\Database\Migrations\Migrator->runMigrationList(Array, false)
+#11 C:\xampp\htdocs\sibimbel\vendor\laravel\framework\src\Illuminate\Database\Console\Migrations\MigrateCommand.php(70): Illuminate\Database\Migrations\Migrator->run('C:\xampp\htdocs...', false)
+#12 C:\xampp\htdocs\sibimbel\vendor\laravel\framework\src\Illuminate\Console\Command.php(112): Illuminate\Database\Console\Migrations\MigrateCommand->fire()
+#13 C:\xampp\htdocs\sibimbel\vendor\symfony\console\Symfony\Component\Console\Command\Command.php(253): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#14 C:\xampp\htdocs\sibimbel\vendor\laravel\framework\src\Illuminate\Console\Command.php(100): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#15 C:\xampp\htdocs\sibimbel\vendor\symfony\console\Symfony\Component\Console\Application.php(889): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#16 C:\xampp\htdocs\sibimbel\vendor\symfony\console\Symfony\Component\Console\Application.php(193): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Migrations\MigrateCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 C:\xampp\htdocs\sibimbel\vendor\symfony\console\Symfony\Component\Console\Application.php(124): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#18 C:\xampp\htdocs\sibimbel\artisan(59): Symfony\Component\Console\Application->run()
+#19 {main} [] []
+[2015-05-17 03:56:49] production.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to undefined method Illuminate\Database\Schema\Blueprint::int()' in C:\xampp\htdocs\sibimbel\app\database\migrations\2015_05_17_033512_create_pembayaran_table.php:20
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
