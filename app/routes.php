@@ -14,7 +14,9 @@
 Route::get('/', function()
 {
 	return View::make('hello');
-});
+});	
+
+Route::get('login', 'HomeController@showLogin');
 
 Route::group(array('prefix' => 'register'), function()
 {

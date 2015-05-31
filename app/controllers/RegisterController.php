@@ -20,7 +20,7 @@ class RegisterController extends BaseController {
 	}
 
 	public function submit(){
-
+		var_dump(Input::all());
 	}
 
 }
