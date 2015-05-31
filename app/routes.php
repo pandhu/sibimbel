@@ -15,3 +15,11 @@ Route::get('/', function()
 {
 	return View::make('hello');
 });
+
+Route::group(array('prefix' => 'register'), function()
+{
+
+    Route::get('/', 'RegisterController@showForm');
+    Route::post('submit', 'RegisterController@submit');
+
+});
