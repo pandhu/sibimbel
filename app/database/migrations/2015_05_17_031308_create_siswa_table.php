@@ -35,8 +35,10 @@ class CreateSiswaTable extends Migration {
 	        $table->string('telp_rumah');
 	        $table->integer('id_program');
 	        $table->integer('pendaftaran');
-	        $table->integer('aktivasi');
+	        $table->string('aktivasi');
 	        $table->string('penerima');
+	        $table->int('deleted')->default(0);
+	        $table->timestamps();
 
 	    });	}
 

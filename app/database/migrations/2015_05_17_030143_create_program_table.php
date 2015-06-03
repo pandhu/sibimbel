@@ -20,6 +20,8 @@ class CreateProgramTable extends Migration {
 	        $table->string('harga_tunai');
 	        $table->string('uang_pangkal');
 	        $table->string('spp');
+            $table->timestamps();
+
 	    });
 	}
 

@@ -13,23 +13,20 @@
         {{ HTML::style('css/bootstrap.css') }}
         {{ HTML::style('css/bootstrap-theme.css') }}
         {{ HTML::style('css/jquery-ui.css') }}
+        {{ HTML::style('css/style.css') }}
 
-        @yield('styles')
+        @yield('style')
     </head>
 
     <body>
         <!-- Container -->
-        <div class="container">
-
             <!-- Content -->
             @yield('content')
 
-        </div>
-
         <!-- Scripts are placed here -->
-        {{ HTML::script('js/jquery-1.11.3.min.js') }}
-        {{ HTML::script('js/bootstrap.min.js') }}
+        {{ HTML::script('js/jquery.min.js') }}
         {{ HTML::script('js/jquery-ui.js') }}
+        {{ HTML::script('js/bootstrap.min.js') }}
         @yield('script')
 
 

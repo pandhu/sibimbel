@@ -21,6 +21,8 @@ class CreatePembayaranTable extends Migration {
 	        $table->string('terbilang');
 	        $table->string('penerima');
 	        $table->primary('no_kuitansi');
+            $table->timestamps();
+
 	    });
 	}
 

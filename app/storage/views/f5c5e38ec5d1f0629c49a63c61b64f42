@@ -1,70 +1,248 @@
-<?php $__env->startSection('content'); ?>
-<div class="col-md-6">
-<?php echo Form::open(array('url' => 'register/submit', 'class'=>'form-horizontal')); ?>
+<?php $__env->startSection('content-inner'); ?>
+<div class="container">
+	<div class="col-md-8 col-md-offset-2">
+		<h2 class="text-center">Pendaftaran Siswa Baru Bimbel Alumni</h2>
+		<div class="col-md-6 nopadding-left">
 
-	<div class="form-group">
-		<?php echo Form::label('tanggal', 'Tanggal', array('class'=>'col-sm-2 control-label')); ?>
+			<?php echo Form::open(array('url' => 'siswa/add/', 'class'=>'form')); ?>
 
-	    <div class="col-sm-10">
-			<?php echo Form::text('tanggal', '', array('id' => 'datepicker', 'class'=>'form-control')); ?>
+			<div class="col-md-6 nopadding-left form-group <?php if($errors->has('tanggal')): ?> has-error <?php endif; ?>">
+				<?php echo Form::label('tanggal', 'Tanggal Masuk', array('class'=>' control-label')); ?>
+
+				<?php echo Form::text('tanggal', $today, array('id'=>'datepicker-tanggal','class'=>'form-control')); ?>
+
+        		<?php if($errors->has('tanggal')): ?> <span class="help-block"><?php echo $errors->first('tanggal'); ?></span> <?php endif; ?>		
+			</div>
+			
+			<div class="col-md-6 nopadding-left nopadding-right form-group <?php if($errors->has('status')): ?> has-error <?php endif; ?>">
+				<?php echo Form::label('status', 'Status', array('class'=>' control-label')); ?>
+
+				<?php echo Form::select('status', array('Baru'=>'Baru', 'ALUMNI'=>'ALUMNI'), Input::old('status'), array('class'=>'form-control')); ?>
+
+        		<?php if($errors->has('email')): ?> <span class="help-block"><?php echo $errors->first('email'); ?></span> <?php endif; ?>		
+			</div>
+			<div class="form-group <?php if($errors->has('nama')): ?> has-error <?php endif; ?>">
+				<?php echo Form::label('nama', 'Nama', array('class'=>' control-label')); ?>
+
+				<?php echo Form::text('nama', Input::old('nama'), array('class'=>'form-control')); ?>
+
+        		<?php if($errors->has('nama')): ?> <p class="help-block"><?php echo $errors->first('nama'); ?></p> <?php endif; ?>		
+			</div>
+			<div class="form-group <?php if($errors->has('panggilan')): ?> has-error <?php endif; ?>">
+				<?php echo Form::label('panggilan', 'Panggilan', array('class'=>' control-label')); ?>
+
+				<?php echo Form::text('panggilan', Input::old('panggilan'), array('class'=>'form-control')); ?>
+
+        		<?php if($errors->has('panggilan')): ?> <p class="help-block"><?php echo $errors->first('panggilan'); ?></p> <?php endif; ?>		
+			</div>
+
+			<div class="col-md-6 nopadding-left form-group <?php if($errors->has('agama')): ?> has-error <?php endif; ?>">
+				<?php echo Form::label('agama', 'Agama', array('class'=>' control-label')); ?>
+
+				<?php echo Form::text('agama', Input::old('agama'), array('class'=>'form-control')); ?>
+
+        		<?php if($errors->has('agama')): ?> <p class="help-block"><?php echo $errors->first('agama'); ?></p> <?php endif; ?>		
+			</div>
+
+			<div class="col-md-6 nopadding-left nopadding-right form-group <?php if($errors->has('jenis_kelamin')): ?> has-error <?php endif; ?>">
+				<?php echo Form::label('jenis_kelamin', 'Jenis Kelamin', array('class'=>' control-label')); ?>
+
+				<?php echo Form::select('jenis_kelamin', array('Laki-laki' => 'Laki-laki', 'Perempuan' => 'Perempuan'), Input::old('jenis_kelamin'), array('class'=>'form-control')); ?>
+
+        		<?php if($errors->has('jenis_kelamin')): ?> <p class="help-block"><?php echo $errors->first('jenis_kelamin'); ?></p> <?php endif; ?>		
+			</div>
+
+			<div class="clearfix"></div>
+
+			<div class="form-group <?php if($errors->has('asal_sekolah')): ?> has-error <?php endif; ?>">
+				<?php echo Form::label('asal_sekolah', 'Asal Sekolah', array('class'=>' control-label')); ?>
+
+				<?php echo Form::text('asal_sekolah', Input::old('asal_sekolah'), array('class'=>'form-control')); ?>
+
+        		<?php if($errors->has('asal_sekolah')): ?> <p class="help-block"><?php echo $errors->first('asal_sekolah'); ?></p> <?php endif; ?>		
+			</div>
+
+			<div class="col-md-6 nopadding-left form-group <?php if($errors->has('tempat_lahir')): ?> has-error <?php endif; ?>">
+				<?php echo Form::label('tempat_lahir', 'Tempat Lahir', array('class'=>' control-label')); ?>
+
+				<?php echo Form::text('tempat_lahir', Input::old('tempat_lahir'), array('class'=>'form-control')); ?>
+
+        		<?php if($errors->has('tempat_lahir')): ?> <p class="help-block"><?php echo $errors->first('tempat_lahir'); ?></p> <?php endif; ?>		
+			</div>
+
+			<div class="col-md-6 nopadding-left nopadding-right form-group <?php if($errors->has('tanggal_lahir')): ?> has-error <?php endif; ?>">
+				<?php echo Form::label('tanggal_lahir', 'Tanggal Lahir', array('class'=>' control-label')); ?>
+
+				<?php echo Form::text('tanggal_lahir', Input::old('tanggal_lahir'), array('id'=>'datepicker', 'class'=>'clsDatePicker form-control')); ?>
+
+        		<?php if($errors->has('tanggal_lahir')): ?> <p class="help-block"><?php echo $errors->first('tanggal_lahir'); ?></p> <?php endif; ?>		
+			</div>
+
+			<div class="clearfix"></div>
+
+			<div class="form-group <?php if($errors->has('nama_ayah')): ?> has-error <?php endif; ?>">
+				<?php echo Form::label('nama_ayah', 'Nama Ayah', array('class'=>' control-label')); ?>
+
+				<?php echo Form::text('nama_ayah', Input::old('nama_ayah'), array('class'=>'form-control')); ?>
+
+        		<?php if($errors->has('nama_ayah')): ?> <p class="help-block"><?php echo $errors->first('nama_ayah'); ?></p> <?php endif; ?>		
+			</div>
+
+			<div class="form-group <?php if($errors->has('pekerjaan_ayah')): ?> has-error <?php endif; ?>">
+				<?php echo Form::label('pekerjaan_ayah', 'Pekerjaan Ayah', array('class'=>' control-label')); ?>
+
+				<?php echo Form::text('pekerjaan_ayah', Input::old('pekerjaan_ayah'), array('class'=>'form-control')); ?>
+
+        		<?php if($errors->has('pekerjaan_ayah')): ?> <p class="help-block"><?php echo $errors->first('pekerjaan_ayah'); ?></p> <?php endif; ?>		
+			</div>
+
+			<div class="form-group <?php if($errors->has('nama_ibu')): ?> has-error <?php endif; ?>">
+				<?php echo Form::label('nama_ibu', 'Nama Ibu', array('class'=>' control-label')); ?>
+
+				<?php echo Form::text('nama_ibu', Input::old('nama_ibu'), array('class'=>'form-control')); ?>
+
+        		<?php if($errors->has('nama_ibu')): ?> <p class="help-block"><?php echo $errors->first('nama_ibu'); ?></p> <?php endif; ?>		
+			</div>
+
+			<div class="form-group <?php if($errors->has('pekerjaan_ibu')): ?> has-error <?php endif; ?>">
+				<?php echo Form::label('pekerjaan_ibu', 'Pekerjaan Ibu', array('class'=>' control-label')); ?>
+
+				<?php echo Form::text('pekerjaan_ibu', Input::old('pekerjaan_ibu'), array('class'=>'form-control')); ?>
+
+        		<?php if($errors->has('pekerjaan_ibu')): ?> <p class="help-block"><?php echo $errors->first('pekerjaan_ibu'); ?></p> <?php endif; ?>		
+			</div>			
+		</div>
+		<div class="col-md-6 nopadding-left">
+
+			<div class="form-group <?php if($errors->has('telp_siswa')): ?> has-error <?php endif; ?>">
+				<?php echo Form::label('telp_siswa', 'Telp Siswa', array('class'=>' control-label')); ?>
+
+				<?php echo Form::text('telp_siswa', Input::old('telp_siswa'), array('class'=>'form-control')); ?>
+
+        		<?php if($errors->has('telp_siswa')): ?> <p class="help-block"><?php echo $errors->first('telp_siswa'); ?></p> <?php endif; ?>		
+			</div>
+
+			<div class="form-group <?php if($errors->has('telp_ortu')): ?> has-error <?php endif; ?>">
+				<?php echo Form::label('telp_ortu', 'Telp Orangtua', array('class'=>' control-label')); ?>
+
+				<?php echo Form::text('telp_ortu', Input::old('telp_ortu'), array('class'=>'form-control')); ?>
+
+        		<?php if($errors->has('telp_ortu')): ?> <p class="help-block"><?php echo $errors->first('telp_ortu'); ?></p> <?php endif; ?>		
+			</div>
+
+			<div class="form-group <?php if($errors->has('telp_rumah')): ?> has-error <?php endif; ?>">
+				<?php echo Form::label('telp_rumah', 'Telp Rumah', array('class'=>' control-label')); ?>
+
+				<?php echo Form::text('telp_rumah', Input::old('telp_rumah'), array('class'=>'form-control')); ?>
+
+        		<?php if($errors->has('telp_rumah')): ?> <p class="help-block"><?php echo $errors->first('telp_rumah'); ?></p> <?php endif; ?>		
+			</div>
+
+			<div class="form-group <?php if($errors->has('alamat')): ?> has-error <?php endif; ?>">
+				<?php echo Form::label('alamat', 'Alamat', array('class'=>' control-label')); ?>
+
+				<?php echo Form::text('alamat', Input::old('alamat'), array('class'=>'form-control')); ?>
+
+        		<?php if($errors->has('alamat')): ?> <p class="help-block"><?php echo $errors->first('alamat'); ?></p> <?php endif; ?>		
+			</div>
+
+			<div class="col-md-6 nopadding-left form-group <?php if($errors->has('kota')): ?> has-error <?php endif; ?>">
+				<?php echo Form::label('kota', 'Kota', array('class'=>' control-label')); ?>
+
+				<?php echo Form::text('kota', Input::old('kota'), array('class'=>'form-control')); ?>
+
+        		<?php if($errors->has('kota')): ?> <p class="help-block"><?php echo $errors->first('kota'); ?></p> <?php endif; ?>		
+			</div>
+
+			<div class="col-md-6 nopadding-left nopadding-right form-group <?php if($errors->has('kode_pos')): ?> has-error <?php endif; ?>">
+				<?php echo Form::label('kode_pos', 'Kode Pos', array('class'=>' control-label')); ?>
+
+				<?php echo Form::text('kode_pos', Input::old('kode_pos'), array('class'=>'form-control')); ?>
+
+        		<?php if($errors->has('kode_pos')): ?> <p class="help-block"><?php echo $errors->first('kode_pos'); ?></p> <?php endif; ?>		
+			</div>
+
+			<div class="clearfix"></div>
+
+			<div class="form-group <?php if($errors->has('id_program')): ?> has-error <?php endif; ?>">
+				<?php echo Form::label('id_program', 'Program', array('class'=>' control-label')); ?>
+
+				<?php echo Form::select('id_program', $programs, 49, array('class'=>'form-control')); ?>
+
+        		<?php if($errors->has('id_program')): ?> <p class="help-block"><?php echo $errors->first('id_program'); ?></p> <?php endif; ?>		
+			</div>
+			<div class="form-group <?php if($errors->has('aktivasi')): ?> has-error <?php endif; ?>">
+				<?php echo Form::label('aktivasi', 'Aktivasi', array('class'=>' control-label')); ?>
+
+				<?php echo Form::select('aktivasi', array('none'=>'Pilih', 'Aktif'=>'Aktif', 'Non-aktif'=>'Non-aktif'), Input::old('aktivsi'), array('class'=>'form-control')); ?>
+
+        		<?php if($errors->has('aktivasi')): ?> <p class="help-block"><?php echo $errors->first('aktivasi'); ?></p> <?php endif; ?>		
+			</div>
+			<div class="form-group <?php if($errors->has('pendaftaran')): ?> has-error <?php endif; ?>">
+				<?php echo Form::label('pendaftaran', 'Pendaftaran', array('class'=>' control-label')); ?>
+
+				<?php echo Form::text('pendaftaran', Input::old('pendaftaran'), array('class'=>'form-control')); ?>
+
+        		<?php if($errors->has('pendaftaran')): ?> <p class="help-block"><?php echo $errors->first('pendaftaran'); ?></p> <?php endif; ?>		
+			</div>
+
+			<div class="form-group">
+				<?php echo Form::label('penerima', 'Penerima', array('class'=>' control-label')); ?>
+
+				<?php echo Form::text('penerima', Auth::user()->nama, array('readonly'=>'1', 'class'=>'form-control')); ?>
+
+        		<?php if($errors->has('penerima')): ?> <p class="help-block"><?php echo $errors->first('penerima'); ?></p> <?php endif; ?>		
+			</div>
 
 		</div>
+		<div class="clearfix"></div>
+		<?php echo Form::submit('Submit', array('class'=>'col-md-12 btn btn-primary')); ?>
+
+		<?php echo Form::close(); ?>
+
 	</div>
-	<div class="form-group">
-		<?php echo Form::label('nis', 'NIS', array('class'=>'col-sm-2 control-label')); ?>
-
-	    <div class="col-sm-10">
-			<?php echo Form::text('nis', '', array('class'=>'form-control')); ?>
-
-		</div>
+	<div class="detil-program">
 	</div>
-
-	<div class="form-group">
-		<?php echo Form::label('pembayaran', 'Pembayaran', array('class'=>'col-sm-2 control-label')); ?>
-
-	    <div class="col-sm-10">
-			<?php echo Form::text('pembayaran', '', array('class'=>'form-control')); ?>
-
-		</div>
-	</div>
-
-	<div class="form-group">
-		<?php echo Form::label('jumlah', 'Jumlah', array('class'=>'col-sm-2 control-label')); ?>
-
-	    <div class="col-sm-10">
-			<?php echo Form::text('jumlah', '', array('class'=>'form-control')); ?>
-
-		</div>
-	</div>
-
-	<div class="form-group">
-		<?php echo Form::label('penerima', 'Penerima', array('class'=>'col-sm-2 control-label')); ?>
-
-	    <div class="col-sm-10">
-			<?php echo Form::text('penerima', '', array('readonly'=>true, 'class'=>'form-control')); ?>
-
-		</div>
-	</div>
-
-	<div class="form-group">
-		<?php echo Form::label('', '', array('class'=>'col-sm-2 control-label')); ?>
-
-	    <div class="col-sm-10">
-			<?php echo Form::submit('Submit', array('class'=>'btn btn-default')); ?>
-
-
-		</div>
-	</div>
-<?php echo Form::close(); ?>
-
 </div>
 
+
 <?php $__env->stopSection(); ?>
-<?php $__env->startSection('script'); ?>
+<?php $__env->startSection('script-inner'); ?>
 <script>
 	$(function() {
-		$( "#datepicker" ).datepicker();
+		$( "#datepicker" ).datepicker({
+			changeMonth: true,
+			changeYear: true,
+			yearRange: "-25:+0"
+		});
+		$( "#datepicker-tanggal" ).datepicker({
+			changeMonth: true,
+			changeYear: true
+		});
 	});
 </script>
+<script>
+	$(document).ready(function(){
+		$(document).on('change', '#id_program', function(e){
+			e.preventDefault();
+			var thisClass = $(this).attr('class').split("-");
+			var id = $(this).val(); 
+			$.ajax({
+				type: "GET",
+				dataType: 'html',
+				url : "programs/getinfo/" + id ,
+				success : function(data){
+					$('.detil-program').html(data);
+					$('.detil-program').html(data);
+				}
+			},"json");
+
+		});
+		$('.detil-program').offset($('#id_program').position());
+    });//end of document ready function
+</script>
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+
+
+<?php echo $__env->make('layouts.admin', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

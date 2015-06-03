@@ -1,32 +1,16 @@
 @extends('layouts.master')
+@section('style')
+    {{ HTML::style('css/login.css') }}
+@stop
 @section('content')
-<div class="col-md-6">
-{{Form::open(array('url' => 'register/submit', 'class'=>'form-horizontal'))}}
-	
-	<div class="form-group">
-		{{Form::label('username', 'Username', array('class'=>'col-sm-2 control-label'))}}
-	    <div class="col-sm-10">
-			{{Form::text('username', '', array('class'=>'form-control')) }}
-		</div>
-	</div>
-
-	<div class="form-group">
-		{{Form::label('password', 'password', array('class'=>'col-sm-2 control-label'))}}
-	    <div class="col-sm-10">
-			{{Form::password('password', '', array('class'=>'form-control')) }}
-		</div>
-	</div>
-
-	<div class="form-group">
-		{{Form::label('', '', array('class'=>'col-sm-2 control-label'))}}
-	    <div class="col-sm-10">
-			{{Form::submit('Submit', array('class'=>'btn btn-default'))}}
-
-		</div>
-	</div>
+	{{Form::open(array('url' => 'login', 'class'=>'form-signin'))}}
+	<h4 class="form-signin-heading">Silahkan Login</h4>
+	{{Form::text('username', '', array('class'=>'form-control', 'placeholder'=>'username', 'autofocus'=>'1')) }}
+	{{Form::password('password', array('class'=>'form-control', 'placeholder'=>'username')) }}
+	{{Form::submit('Login', array('class'=>'btn btn-lg btn-primary btn-block'))}}
 {{Form::close()}}
-</div>
 
 @stop
+
 @section('script')
 @stop

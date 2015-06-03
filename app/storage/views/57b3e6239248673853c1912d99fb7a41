@@ -16,25 +16,23 @@
 
         <?php echo HTML::style('css/jquery-ui.css'); ?>
 
+        <?php echo HTML::style('css/style.css'); ?>
 
-        <?php echo $__env->yieldContent('styles'); ?>
+
+        <?php echo $__env->yieldContent('style'); ?>
     </head>
 
     <body>
         <!-- Container -->
-        <div class="container">
-
             <!-- Content -->
             <?php echo $__env->yieldContent('content'); ?>
 
-        </div>
-
         <!-- Scripts are placed here -->
-        <?php echo HTML::script('js/jquery-1.11.3.min.js'); ?>
-
-        <?php echo HTML::script('js/bootstrap.min.js'); ?>
+        <?php echo HTML::script('js/jquery.min.js'); ?>
 
         <?php echo HTML::script('js/jquery-ui.js'); ?>
+
+        <?php echo HTML::script('js/bootstrap.min.js'); ?>
 
         <?php echo $__env->yieldContent('script'); ?>
 
