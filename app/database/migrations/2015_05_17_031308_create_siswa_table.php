@@ -37,7 +37,7 @@ class CreateSiswaTable extends Migration {
 	        $table->integer('pendaftaran');
 	        $table->string('aktivasi');
 	        $table->string('penerima');
-	        $table->int('deleted')->default(0);
+	        $table->integer('deleted')->default(0);
 	        $table->timestamps();
 
 	    });	}
