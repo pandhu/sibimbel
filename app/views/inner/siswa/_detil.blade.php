@@ -45,9 +45,7 @@
 					<div class="form-group">
 						{{Form::label('tanggal_lahir', 'Tanggal Lahir', array('readonly'=>'true', 'class'=>' control-label'))}}
 							{{Form::text('tanggal_lahir', $siswa->tanggal_lahir, array('id'=>'datepicker-edit', 'readonly'=>'true', 'class'=>'clsDatePicker form-control')) }}
-					</div>
-
-					
+					</div>					
 				</div>
 
 				<div class="col-md-4">
@@ -84,9 +82,7 @@
 					<div class="form-group">
 						{{Form::label('telp_ortu', 'Telp Orangtua', array('readonly'=>'true', 'class'=>' control-label'))}}
 						{{Form::text('telp_ortu', $siswa->telp_ortu, array('readonly'=>'true', 'class'=>'form-control')) }}
-					</div>
-
-					
+					</div>					
 
 				</div>
 				<div class="col-md-4">

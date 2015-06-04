@@ -26,7 +26,8 @@
         "Illuminate\\Validation\\ValidationServiceProvider",
         "Illuminate\\View\\ViewServiceProvider",
         "Illuminate\\Workbench\\WorkbenchServiceProvider",
-        "Way\\Generators\\GeneratorsServiceProvider"
+        "Way\\Generators\\GeneratorsServiceProvider",
+        "Barryvdh\\DomPDF\\ServiceProvider"
     ],
     "eager": [
         "Illuminate\\Cookie\\CookieServiceProvider",
@@ -110,7 +111,8 @@
         "translator": "Illuminate\\Translation\\TranslationServiceProvider",
         "translation.loader": "Illuminate\\Translation\\TranslationServiceProvider",
         "validator": "Illuminate\\Validation\\ValidationServiceProvider",
-        "validation.presence": "Illuminate\\Validation\\ValidationServiceProvider"
+        "validation.presence": "Illuminate\\Validation\\ValidationServiceProvider",
+        "dompdf": "Barryvdh\\DomPDF\\ServiceProvider"
     },
     "when": {
         "Illuminate\\Foundation\\Providers\\ArtisanServiceProvider": [
@@ -168,6 +170,9 @@
 
         ],
         "Illuminate\\Validation\\ValidationServiceProvider": [
+
+        ],
+        "Barryvdh\\DomPDF\\ServiceProvider": [
 
         ]
     }

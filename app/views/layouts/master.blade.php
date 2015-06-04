@@ -22,7 +22,6 @@
         <!-- Container -->
             <!-- Content -->
             @yield('content')
-
         <!-- Scripts are placed here -->
         {{ HTML::script('js/jquery.min.js') }}
         {{ HTML::script('js/jquery-ui.js') }}

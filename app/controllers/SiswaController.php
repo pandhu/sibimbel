@@ -1,7 +1,11 @@
 <?php
 use Carbon\Carbon;
 class SiswaController extends BaseController {
-
+	public function __construct(){
+        $this->beforeFilter('auth', ['except' => 'login']);
+        $this->beforeFilter('csrf', ['on' => 'post']);
+    }
+    
 	public function show(){
 
 		$siswas = Siswa::with('kelas')->where('deleted', 0)->orderBy('id_program', 'desc')->get();
@@ -18,8 +22,12 @@ class SiswaController extends BaseController {
 
 	public function showDetil($id){
 		$siswa = Siswa::find($id);
-
 		return View::make('inner/siswa/_detil', array('siswa'=>$siswa));
+	}
+
+	public function showInfo($id){
+		$siswa = Siswa::find($id);
+		return View::make('inner/siswa/_info', array('siswa'=>$siswa));
 	}
 
 	public function submitEdit($id){

@@ -2,9 +2,14 @@
 
 class ProgramsController extends BaseController {
 
+	public function __construct(){
+        $this->beforeFilter('auth', ['except' => 'login']);
+        $this->beforeFilter('csrf', ['on' => 'post']);
+    }
+
 	public function show(){
 
-		$programs = Programs::with('siswa_kelas')->get();
+		$programs = Programs::with('siswa_kelas')->where('deleted', 0)->get();
 		return View::make('inner/programs/programs', array('programs'=>$programs));
 	}
 
@@ -50,7 +55,7 @@ class ProgramsController extends BaseController {
 
 	public function doDelete($id){
 		$program = Programs::find($id);
-		$program->delete();
+		$program->deleted = 1;
 
 		if($program->save()){
 			$alert = array('type'=>'success', 'message'=>'Program berhasil dihapus!');

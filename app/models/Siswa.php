@@ -9,6 +9,10 @@ class Siswa extends Eloquent {
         return $this->hasOne('Programs', 'id', 'id_program');
     }
 
+    public function pembayaran(){
+        return $this->hasMany('Pembayaran', 'nis', 'nis');
+    }
+
     public static $rules = array(
 			'nama'=> 'required',
 			'panggilan'=> 'required',

@@ -5,7 +5,9 @@
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.2.*",
-        "nesbot/carbon": "~1.14"
+        "nesbot/carbon": "~1.14",
+        "barryvdh/laravel-dompdf": "0.4.*"
+
 	},
 	"autoload": {
 		"classmap": [

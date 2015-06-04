@@ -26,7 +26,6 @@
         <!-- Container -->
             <!-- Content -->
             <?php echo $__env->yieldContent('content'); ?>
-
         <!-- Scripts are placed here -->
         <?php echo HTML::script('js/jquery.min.js'); ?>
 

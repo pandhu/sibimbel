@@ -13,7 +13,7 @@
 
 Route::get('/', function()
 {
-	return View::make('hello');
+	return Redirect::to('dashboard');
 });	
 
 Route::get('login', 'HomeController@showLogin');
@@ -60,4 +60,25 @@ Route::group(array('prefix' => 'siswa'), function()
     Route::post('delete/{id}', 'SiswaController@doDelete');
 
     Route::get('detil/{id}', 'SiswaController@showDetil');
+   
+    Route::get('getinfo/{id}', 'SiswaController@showInfo');
+});
+
+
+Route::group(array('prefix' => 'pembayaran'), function()
+{
+
+    Route::get('/', 'PembayaranController@show');
+    Route::get('edit/{id}', 'PembayaranController@showEdit');
+    Route::post('edit/{id}', 'PembayaranController@submitEdit');
+   
+    Route::get('add', 'PembayaranController@showAdd');
+    Route::post('add', 'PembayaranController@submitAdd');
+    
+    Route::get('delete/{id}', 'PembayaranController@showDelete');
+    Route::post('delete/{id}', 'PembayaranController@doDelete');
+
+    Route::get('detil/{id}', 'PembayaranController@showDetil');
+
+    Route::get('topdf/{id}','PembayaranController@showPDF');
 });
