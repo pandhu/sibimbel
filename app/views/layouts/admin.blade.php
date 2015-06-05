@@ -29,9 +29,7 @@
                 <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
             </a>
             <ul class="dropdown-menu dropdown-user">
-                <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                </li>
-                <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                <li><a href="#"><i class="fa fa-gear fa-fw"></i> Ganti Password</a>
                 </li>
                 <li class="divider"></li>
                 <li><a href="{{URL::to('logout')}}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
@@ -68,6 +66,9 @@
                 </li>
                 <li>
                     <a href="{{URL::to('pembayaran')}}"><i class="fa fa-edit fa-fw"></i> Pembayaran</a>
+                </li>
+                <li>
+                    <a href="{{URL::to('users')}}"><i class="fa fa-users fa-fw"></i> Users</a>
                 </li>
                
                 <li>
@@ -106,6 +107,14 @@
 {{ HTML::script('bower_components/metisMenu/dist/metisMenu.min.js') }}
 {{ HTML::script('bower_components/raphael/raphael-min.js') }}
 {{ HTML::script('js/sb-admin-2.js') }}
+<script type="text/javascript">
+    $(document).ready(function(){
+        var wrapperWidth = $('window').height()-$('.navbar').height()-20;
+        //console.log(wrapperWidth);
+        $('#page-wrapper').height(wrapperWidth);
+        //$('body').height($(window).height());
+    });
 
+</script>
 @yield('script-inner')
 @stop

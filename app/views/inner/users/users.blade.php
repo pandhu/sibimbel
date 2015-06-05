@@ -2,8 +2,8 @@
 @section('content-inner')
 <div class="row">
 	<div class="col-lg-12">
-		<h1 class="page-header ">Pembayaran 
-			<a href="{{URL::to('pembayaran/add')}}" class="pull-right"><i class="fa fa-plus"></i></a> 				
+		<h1 class="page-header ">Users
+		<a href="{{URL::to('users/add')}}" class="pull-right new-btn"><i class="fa fa-plus"></i></a> 		
 		</h1>
 	</div>
 	<!-- /.col-lg-12 -->
@@ -13,7 +13,7 @@
 	<div class="col-lg-12">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				Data Pembayaran
+				Data User
 			</div>
 			<!-- /.panel-heading -->
 			<div class="panel-body">
@@ -21,29 +21,22 @@
 					<table class="table table-striped table-bordered table-hover" id="dataTables-example">
 						<thead>
 							<tr>
-								<th>No. Kuitansi</th>
+								<th>Username</th>
 								<th>Nama</th>
-								<th>Transaksi</th>
-								<th>Jumlah</th>
-								<th>Penerima</th>
-								<th>Tanggal</th>
-								<th>Action</th>
+								<th>Jabatan</th>
+								<th>Actions</th>
 							</tr>
 						</thead>
 						<tbody>
-							@foreach ($pembayarans as $pembayaran)
+							@foreach ($users as $user)
 							<tr class="odd gradeX">
-								<td>{{$pembayaran->no_kuitansi}}</td>
-								<td>{{$pembayaran->siswa->nama}}</td>
-								<td>{{$pembayaran->pembayaran}}</td>
-								<td>{{$pembayaran->jumlah}}</td>
-								<td>{{$pembayaran->penerima}}</td>
-								<td>{{$pembayaran->tanggal}}</td>
-								<td class="">
-									<a data-id="{{$pembayaran->no_kuitansi}}" href="{{URL::to('pembayaran/topdf/'.$pembayaran->no_kuitansi)}}" class="btn btn-success btn-xs">Cetak</a>
-									<a data-id="{{$pembayaran->no_kuitansi}}" class="detil-btn btn btn-primary btn-xs">Detil</a>
-									<a data-id="{{$pembayaran->no_kuitansi}}" href="{{URL::to('pembayaran/edit/'.$pembayaran->no_kuitansi)}}" class="edit-btn btn btn-default btn-xs">Edit</a>
-									<a data-id="{{$pembayaran->no_kuitansi}}" class="delete-btn btn btn-danger btn-xs">Delete</a>
+								<td>{{$user->username}}</td>
+								<td>{{$user->nama}}</td>
+								<td>{{$user->jabatan}}</td>
+								<td class="" style="width:120px">	
+									<div class="btn-group btn-group-sm" role="group" aria-label="...">
+										<a data-id="{{$user->id}}" class="delete-btn btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></a>
+									</div>
 								</td>
 							</tr>
 							@endforeach
@@ -69,49 +62,49 @@
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 				<h4 class="modal-title" id="modal-new">Tambah Programs</h4>
 			</div>
-			{{Form::open(array('url' => 'programs/add/', 'class'=>'form-horizontal'))}}
+			{{Form::open(array('url' => 'users/add/', 'class'=>'form-horizontal'))}}
 			<div class="modal-body">
 
-				<div class="form-group">
+				<div class="form-group @if ($errors->has('username')) has-error @endif">
+					{{Form::label('username', 'Username', array('class'=>'col-sm-2 control-label'))}}
+					<div class="col-sm-10">
+						{{Form::text('username', Input::old('username'), array('id' => 'datepicker', 'class'=>'form-control')) }}
+						@if ($errors->has('username')) <p class="help-block">{{ $errors->first('username') }}</p> @endif		
+					</div>
+				</div>
+
+				<div class="form-group @if ($errors->has('password')) has-error @endif">
+					{{Form::label('password', 'Password', array('class'=>'col-sm-2 control-label'))}}
+					<div class="col-sm-10">
+						{{Form::password('password', array('class'=>'form-control')) }}
+						@if ($errors->has('password')) <p class="help-block">{{ $errors->first('password') }}</p> @endif
+					</div>
+				</div>
+
+				<div class="form-group @if ($errors->has('confirm_password')) has-error @endif">
+					{{Form::label('confirm_password', 'Ulangi Password', array('class'=>'col-sm-2 control-label'))}}
+					<div class="col-sm-10">
+						{{Form::password('confirm_password', array('class'=>'form-control')) }}
+						@if ($errors->has('confirm_password')) <p class="help-block">{{ $errors->first('confirm_password') }}</p> @endif		
+					</div>
+				</div>
+
+				<div class="form-group @if ($errors->has('nama')) has-error @endif">
 					{{Form::label('nama', 'Nama', array('class'=>'col-sm-2 control-label'))}}
 					<div class="col-sm-10">
-						{{Form::text('nama', '', array('id' => 'datepicker', 'class'=>'form-control')) }}
-					</div>
-				</div>
-				<div class="form-group">
-					{{Form::label('hari', 'Hari', array('class'=>'col-sm-2 control-label'))}}
-					<div class="col-sm-10">
-						{{Form::text('hari', '', array('class'=>'form-control')) }}
+						{{Form::text('nama', Input::old('nama'), array('class'=>'form-control')) }}
+						@if ($errors->has('nama')) <p class="help-block">{{ $errors->first('nama') }}</p> @endif
 					</div>
 				</div>
 
-				<div class="form-group">
-					{{Form::label('jam', 'Jam', array('class'=>'col-sm-2 control-label'))}}
+				<div class="form-group @if ($errors->has('jabatan')) has-error @endif">
+					{{Form::label('jabatan', 'Jabatan', array('class'=>'col-sm-2 control-label'))}}
 					<div class="col-sm-10">
-						{{Form::text('jam', '', array('class'=>'form-control')) }}
-					</div>
-				</div>
+						{{Form::text('jabatan', Input::old('jabatan'), array('class'=>'form-control')) }}
+						@if ($errors->has('jabatan')) <p class="help-block">{{ $errors->first('jabatan') }}</p> @endif		
 
-				<div class="form-group">
-					{{Form::label('harga_tunai', 'Harga Tunai', array('class'=>'col-sm-2 control-label'))}}
-					<div class="col-sm-10">
-						{{Form::text('harga_tunai', '', array('class'=>'form-control')) }}
 					</div>
-				</div>
-
-				<div class="form-group">
-					{{Form::label('uang_pangkal', 'Uang Pangkal', array('class'=>'col-sm-2 control-label'))}}
-					<div class="col-sm-10">
-						{{Form::text('uang_pangkal', '', array('class'=>'form-control')) }}
-					</div>
-				</div>
-
-				<div class="form-group">
-					{{Form::label('spp', 'SPP', array('class'=>'col-sm-2 control-label'))}}
-					<div class="col-sm-10">
-						{{Form::text('spp', '', array('class'=>'form-control')) }}
-					</div>
-				</div>
+				</div>	
 
 			</div>
 			<div class="modal-footer">
@@ -160,12 +153,14 @@
 	</div>
 </div>
 @stop
-
 @section('script-inner')
 {{ HTML::script('bower_components/datatables/media/js/jquery.dataTables.min.js') }}
 {{ HTML::script('bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js') }}
 <script>
 	$(document).ready(function() {
+		if(<?php echo count($errors->all())?> != 0){
+			$('#modal-new').modal('show');
+		}
 		$('#dataTables-example').DataTable({
 			responsive: true
 		});
@@ -186,7 +181,7 @@
 			$.ajax({
 				type: "GET",
 				dataType: 'html',
-				url : "pembayaran/"+thisClass[0]+"/" + id ,
+				url : "users/"+thisClass[0]+"/" + id ,
 				success : function(data){
 					$('.modal-area').html(data);
 					$('#modal-'+ thisClass[0]).modal('show');

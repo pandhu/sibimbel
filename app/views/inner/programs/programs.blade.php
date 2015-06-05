@@ -3,7 +3,7 @@
 <div class="row">
 	<div class="col-lg-12">
 		<h1 class="page-header ">Programs 		
-			<a class="btn btn-lg btn-primary pull-right new-btn">Tambah Program</a>
+			<a href="{{URL::to('programs/add')}}" class="new-btn pull-right"><i class="fa fa-plus"></i></a> 		
 		</h1>
 	</div>
 	<!-- /.col-lg-12 -->
@@ -47,9 +47,11 @@
 										{{0}}
 									@endif
 									</td>
-								<td class="">
-									<a data-id="{{$program->id}}" class="edit-btn btn btn-default btn-xs">Edit</a>
-									<a data-id="{{$program->id}}" class="delete-btn btn btn-danger btn-xs">Delete</a>
+								<td class="" style="width: 80px;">
+									<div class="btn-group btn-group-sm" role="group" aria-label="...">
+										<a data-id="{{$program->id}}" class="edit-btn btn btn-default btn-sm"><i class="glyphicon glyphicon-edit"></i></a>
+										<a data-id="{{$program->id}}" class="delete-btn btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></a>
+									</div>
 								</td>
 							</tr>
 							@endforeach

@@ -22,6 +22,9 @@ Route::get('logout', 'HomeController@doLogout');
 
 Route::get('dashboard', 'UserController@showDashboard');
 
+Route::get('ganti_password', 'UserController@showGantiPassword');
+Route::post('ganti_password', 'UserController@doGantiPassword');
+
 
 Route::group(array('prefix' => 'register'), function()
 {
@@ -81,4 +84,14 @@ Route::group(array('prefix' => 'pembayaran'), function()
     Route::get('detil/{id}', 'PembayaranController@showDetil');
 
     Route::get('topdf/{id}','PembayaranController@showPDF');
+});
+
+Route::group(array('prefix' => 'users'), function()
+{
+
+    Route::get('/', 'UserController@showUsers');
+    Route::post('add', 'UserController@submitAdd');
+    Route::get('delete/{id}', 'UserController@showDelete');
+    Route::post('delete/{id}', 'UserController@doDelete');
+
 });

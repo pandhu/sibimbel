@@ -2,7 +2,9 @@
 @section('content-inner')
 <div class="row">
 	<div class="col-lg-12">
-		<h1 class="page-header ">Siswa 		
+		<h1 class="page-header ">Siswa 	
+			<a href="{{URL::to('register')}}" class="pull-right"><i class="fa fa-plus"></i></a> 		
+	
 		</h1>
 	</div>
 	<!-- /.col-lg-12 -->
@@ -44,10 +46,12 @@
 								<td>{{$siswa->telp_siswa}}</td>
 								<td>{{$siswa->telp_ortu}}</td>
 								<td>{{$siswa->telp_rumah}}</td>
-								<td class="">
-									<a data-id="{{$siswa->nis}}" class="detil-btn btn btn-primary btn-xs">Detil</a>
-									<a data-id="{{$siswa->nis}}" href="{{URL::to('siswa/edit/'.$siswa->nis)}}" class="edit-btn btn btn-default btn-xs">Edit</a>
-									<a data-id="{{$siswa->nis}}" class="delete-btn btn btn-danger btn-xs">Delete</a>
+								<td class="" style="width:100px">	
+									<div class="btn-group btn-group-sm" role="group" aria-label="...">
+										<a data-id="{{$siswa->nis}}" class="detil-btn btn btn-primary btn-sm"><i class="fa fa-info"></i></a>
+										<a data-id="{{$siswa->nis}}" href="{{URL::to('siswa/edit/'.$siswa->nis)}}" class="edit-btn btn btn-default btn-sm"><i class="glyphicon glyphicon-edit"></i></a>
+										<a data-id="{{$siswa->nis}}" class="delete-btn btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></a>
+									</div>
 								</td>
 							</tr>
 							@endforeach
