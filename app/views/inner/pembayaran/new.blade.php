@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content-inner')
 <div class="col-md-8 col-md-offset-2">
-	<h2 class="text-center">Pembayaran Bimbel Alumni</h2>
+	<h2 class="text-center">Pembayaran Baru</h2>
 
 		{{Form::open(array('url' => 'pembayaran/add/', 'class'=>'form'))}}
 		<div class="col-md-6 nopadding-left form-group @if ($errors->has('tanggal')) has-error @endif">

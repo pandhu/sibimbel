@@ -7,7 +7,8 @@
 	<!-- /.col-lg-12 -->
 </div>
 <!-- /.row -->
-<h2 class="text-center">Selamat Datang Di Sistem Informasi Bimbel Alumni</h2>
+<h2 class="text-center">Selamat Datang Di Sistem Informasi {{$setting['nama_bimbel']}}</h2>
+<h4 class="text-center">Tahun Ajaran {{'20'.substr($setting['tahun_ajaran'],0,2).'/20'.substr($setting['tahun_ajaran'],2,2)}}</h4>
 <div class="row">
 	<div class="col-lg-4 col-md-6">
 		<div class="panel panel-primary">

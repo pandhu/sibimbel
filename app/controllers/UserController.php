@@ -8,7 +8,8 @@ class UserController extends BaseController {
 	public function showDashboard(){
 		$programs = Programs::where('deleted', 0)->get();
 		$siswa = Siswa::where('deleted',0)->get();
-		return View::make('inner/dashboard', array('programs'=>$programs, 'siswa'=>$siswa));
+		$setting = Setting::lists('value','key');
+		return View::make('inner/dashboard', array('programs'=>$programs, 'siswa'=>$siswa,'setting'=>$setting));
 	}
 
 	public function showGantiPassword(){

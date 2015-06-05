@@ -95,3 +95,11 @@ Route::group(array('prefix' => 'users'), function()
     Route::post('delete/{id}', 'UserController@doDelete');
 
 });
+
+Route::group(array('prefix' => 'setting'), function()
+{
+
+    Route::get('/', 'SettingController@showGeneral');
+    Route::post('change', 'SettingController@submitChange');
+
+});

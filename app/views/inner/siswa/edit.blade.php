@@ -185,7 +185,7 @@
 			$.ajax({
 				type: "GET",
 				dataType: 'html',
-				url : "programs/getinfo/" + id ,
+				url : "../../programs/getinfo/" + id ,
 				success : function(data){
 					$('.detil-program').html(data);
 					$('.detil-program').html(data);
