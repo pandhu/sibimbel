@@ -114,10 +114,10 @@ class PembayaranController extends BaseController {
 		$now = date_format($now,"d/m/Y H:i:s");
 		$date_create = explode('-',$pembayaran->tanggal);
 		$tanggal = $date_create[2]." ".$bulan[(int)$date_create[1]]." ".$date_create[0]; 
-		
-		$pdf =  PDF::loadView('inner/pembayaran/topdf', array('siswa'=>$siswa, 'pembayaran'=>$pembayaran, 'now'=>$now,'tanggal'=>$tanggal)); 
+		$setting = Setting::lists('value','key');
+		$pdf =  PDF::loadView('inner/pembayaran/topdf', array('siswa'=>$siswa, 'pembayaran'=>$pembayaran, 'now'=>$now,'tanggal'=>$tanggal, 'setting'=>$setting)); 
 		return $pdf->stream();
-		return View::make('inner/pembayaran/topdf', array('siswa'=>$siswa, 'pembayaran'=>$pembayaran, 'today'=>$today, 'now'=>$now, 'tanggal'=>$tanggal)); 
+		//return View::make('inner/pembayaran/topdf', array('siswa'=>$siswa, 'pembayaran'=>$pembayaran, 'today'=>$today, 'now'=>$now, 'tanggal'=>$tanggal)); 
 	}
 	//**** HELPER FUNCTION ****//
 	private function kekata($x) {

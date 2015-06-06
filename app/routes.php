@@ -65,6 +65,7 @@ Route::group(array('prefix' => 'siswa'), function()
     Route::get('detil/{id}', 'SiswaController@showDetil');
    
     Route::get('getinfo/{id}', 'SiswaController@showInfo');
+    Route::get('topdf/{id}', 'SiswaController@showPDF');
 });
 
 

@@ -135,4 +135,16 @@ class SiswaController extends BaseController {
 		return Redirect::to('siswa');
 	}
 	
+	public function showPDF($id){
+		$siswa = Siswa::with('kelas')->find($id);
+		$setting = Setting::lists('value','key');
+		$bulan = array('', 'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember');
+		$date_create = explode('-',$siswa->tanggal);
+		$tanggal = $date_create[2]." ".$bulan[(int)$date_create[1]]." ".$date_create[0]; 
+		$now = Carbon::now()->toDateTimeString();
+		$now = date_create($now);
+		$now = date_format($now,"d/m/Y H:i:s");
+		$pdf =  PDF::loadView('inner/siswa/topdf', array('siswa'=>$siswa,'tanggal'=>$tanggal, 'setting'=>$setting,'now'=>$now)); 
+		return $pdf->stream();
+	}
 }

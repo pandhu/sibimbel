@@ -45,12 +45,20 @@ class UserController extends BaseController {
 	}
 
 	public function showUsers(){
+		if(Auth::user()->role != 0){
+			return Redirect::to('dashboard');
+		}
+
 		$users = User::all();
 		return View::make('inner/users/users', array('users'=>$users));
 
 	}
 
 	public function submitAdd(){
+		if(Auth::user()->role != 0){
+			return Redirect::to('dashboard');
+		}
+
 		$rules = array(
 				'username'=>array('required','regex:/[a-z|0-9|.]*/'),
 				'password'=>'required',
@@ -65,6 +73,14 @@ class UserController extends BaseController {
        							->withInput();
 		}
 
+		$old_user = User::where('username',Input::get('username'))->first();
+		
+		if($old_user != null ){
+			$alert = array('type'=>'danger', 'message'=>'Username telah terdaftar');
+			Session::flash('alert', $alert);
+			return Redirect::to('users')
+       							->withInput();
+		}
 		$user = new User;
 		$user->username = Input::get('username');
 		$user->nama = Input::get('nama');
@@ -79,12 +95,20 @@ class UserController extends BaseController {
 	}
 
 	public function showDelete($id){
+		if(Auth::user()->role != 0){
+			return Redirect::to('dashboard');
+		}
+
 		$user = User::find($id);
 		
 		return View::make('inner/users/_delete', array('user'=>$user));
 	}
 
 	public function doDelete($id){
+		if(Auth::user()->role != 0){
+			return Redirect::to('dashboard');
+		}
+
 		$user = User::find($id);
 		$user->delete();
 		$alert = array('type'=>'success', 'message'=>'User berhasil dihapus!');

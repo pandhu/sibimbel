@@ -67,10 +67,10 @@
                 <li>
                     <a href="{{URL::to('pembayaran')}}"><i class="fa fa-edit fa-fw"></i> Pembayaran</a>
                 </li>
+                @if(Auth::user()->role == 0)
                 <li>
                     <a href="{{URL::to('users')}}"><i class="fa fa-users fa-fw"></i> Users</a>
                 </li>
-               
                 <li>
                     <a href="#"><i class="fa fa-files-o fa-fw"></i> Settings<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
@@ -83,6 +83,8 @@
                     </ul>
                     <!-- /.nav-second-level -->
                 </li>
+                @endif 
+
             </ul>
         </div>
         <!-- /.sidebar-collapse -->
